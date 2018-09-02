@@ -1,9 +1,9 @@
-﻿using Litentity.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Litentity.Sessions
+namespace FIVIL.Litentity
 {
     class SessionBase
     {

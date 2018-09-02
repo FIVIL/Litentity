@@ -1,5 +1,4 @@
-﻿using Litentity.Services;
-using Litentity.Sessions;
+﻿
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Litentity.Filters
+namespace FIVIL.Litentity
 {
     class LitentityAllowAnonymousAttribute : Attribute, IAuthorizationFilter, IAllowAnonymousFilter
     {

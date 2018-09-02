@@ -2,11 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
-using Litentity.Sessions;
 
-namespace Litentity.Services
+namespace FIVIL.Litentity
 {
-    public class Litentity<T> : ILitentity<T> where T : Sessions.SessionData
+    public class Litentity<T> : ILitentity<T> where T : SessionData
     {
         internal Guid Key { get; set; }
         internal SessionProvider SessionS;
@@ -26,7 +25,7 @@ namespace Litentity.Services
 
         public bool IsLogedIn(Guid key) => SessionS.Get(key).Item1;
 
-        public bool Login(Litentity.Models.LitentityUsers SB)
+        public bool Login(LitentityUsers SB)
         {
             var sb = new SessionBase(SB);
             var p = SessionS.Add(sb);

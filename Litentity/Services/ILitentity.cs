@@ -1,9 +1,9 @@
-﻿using Litentity.Sessions;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Litentity.Services
+namespace FIVIL.Litentity
 {
     public interface ILitentity<T> where T : SessionData
     {
@@ -14,7 +14,7 @@ namespace Litentity.Services
         bool PhoneConfirmed { get; }
         bool EmailConfirmed { get; }
         bool IsLogedIn(Guid key);
-        bool Login(Litentity.Models.LitentityUsers SB);
+        bool Login(LitentityUsers SB);
         bool LogOff();
     }
 }

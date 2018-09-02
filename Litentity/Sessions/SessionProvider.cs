@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Litentity.Sessions
+namespace FIVIL.Litentity
 {
     public class SessionProvider : IDisposable
     {

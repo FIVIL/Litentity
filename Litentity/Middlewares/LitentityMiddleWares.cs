@@ -2,17 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Litentity.Services;
-using Litentity.Sessions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 
-namespace Litentity.Middlewares
+namespace FIVIL.Litentity
 {
     public static class LitentityMiddleWares
     {
-        private static LitentityConfiguration conf = new LitentityConfiguration();
-
         public static void UseLitentityPrivateAuthentication(this IApplicationBuilder app)
         {
             app.Use(async (c, n) =>

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Litentity.Services
+namespace FIVIL.Litentity
 {
     public class LitentityConfiguration
     {
@@ -10,7 +10,7 @@ namespace Litentity.Services
         internal static bool Header = true;
         internal static string PrivateTokenName = "LPT";
         internal static string PublicTokenName = "LPuT";
-        internal static Action<Litentity.Models.LitentityUsers> callBack;
+        internal static Action<LitentityUsers> callBack;
         internal static TimeSpan IdleTime = TimeSpan.FromMinutes(40);
         internal static Guid PublicToken = Guid.NewGuid();
         public LitentityConfiguration()
@@ -37,7 +37,7 @@ namespace Litentity.Services
             PrivateTokenName = privateTokenName;
             return this;
         }
-        public LitentityConfiguration SetCallBackFunction(Action<Litentity.Models.LitentityUsers> CallBack)
+        public LitentityConfiguration SetCallBackFunction(Action<LitentityUsers> CallBack)
         {
             callBack = CallBack;
             return this;

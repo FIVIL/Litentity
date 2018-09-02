@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Litentity.Services
+namespace FIVIL.Litentity
 {
     public static class LitentityService
     {
@@ -13,17 +13,17 @@ namespace Litentity.Services
 
         }
         public static void AddLitentity<T>(this IServiceCollection service,Action<LitentityConfiguration> configuration)
-            where T:Litentity.Sessions.SessionData
+            where T:SessionData
         {
-            service.AddSingleton<Sessions.SessionProvider>();
-            service.AddScoped<ILitentity<T>, Services.Litentity<T>>();
+            service.AddSingleton<SessionProvider>();
+            service.AddScoped<ILitentity<T>, Litentity<T>>();
             configuration(Conf);
         }
         public static void AddLitentity<T>(this IServiceCollection service)
-     where T : Litentity.Sessions.SessionData
+     where T : SessionData
         {
-            service.AddSingleton<Sessions.SessionProvider>();
-            service.AddScoped<ILitentity<T>, Services.Litentity<T>>();
+            service.AddSingleton<SessionProvider>();
+            service.AddScoped<ILitentity<T>, Litentity<T>>();
         }
     }
 }

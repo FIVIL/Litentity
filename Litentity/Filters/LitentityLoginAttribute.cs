@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Litentity.Models;
-using Litentity.Services;
-using Litentity.Sessions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Litentity.Filters
+namespace FIVIL.Litentity
 {
     public class LitentityLoginAttribute : Attribute, IAuthorizationFilter
     {

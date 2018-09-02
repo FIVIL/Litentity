@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Litentity.Models
+namespace FIVIL.Litentity
 {
     public enum LitentityUsersTypes
     {
