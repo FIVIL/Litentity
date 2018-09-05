@@ -5,12 +5,12 @@ using System.Text;
 
 namespace FIVIL.Litentity
 {
-    public interface ILitentity<T> where T : SessionData
+    public interface ILitentity
     {
-        T Session { get; }
         string UserName { get; }
         string Email { get; }
         string PhoneNumber { get; }
+        Dictionary<string, object> Sessions { get; }
         bool PhoneConfirmed { get; }
         bool EmailConfirmed { get; }
         bool IsLogedIn(Guid key);

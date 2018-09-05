@@ -7,7 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 namespace FIVIL.Litentity
 {
-    class LitentityContext : DbContext
+    public class LitentityContext : DbContext
     {
         public LitentityContext(DbContextOptions options)
             : base(options)

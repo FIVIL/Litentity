@@ -12,18 +12,16 @@ namespace FIVIL.Litentity
         {
 
         }
-        public static void AddLitentity<T>(this IServiceCollection service,Action<LitentityConfiguration> configuration)
-            where T:SessionData
+        public static void AddLitentity(this IServiceCollection service,Action<LitentityConfiguration> configuration)
         {
             service.AddSingleton<SessionProvider>();
-            service.AddScoped<ILitentity<T>, Litentity<T>>();
+            service.AddScoped<ILitentity, Litentity>();
             configuration(Conf);
         }
-        public static void AddLitentity<T>(this IServiceCollection service)
-     where T : SessionData
+        public static void AddLitentity(this IServiceCollection service)
         {
             service.AddSingleton<SessionProvider>();
-            service.AddScoped<ILitentity<T>, Litentity<T>>();
+            service.AddScoped<ILitentity, Litentity>();
         }
     }
 }

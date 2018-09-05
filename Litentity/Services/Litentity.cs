@@ -5,13 +5,13 @@ using System.Text;
 
 namespace FIVIL.Litentity
 {
-    public class Litentity<T> : ILitentity<T> where T : SessionData
+    public class Litentity:ILitentity
     {
         internal Guid Key { get; set; }
         internal SessionProvider SessionS;
         internal SessionBase SB;
         internal bool status;
-        public T Session => (T)SB.SessionData;
+        public Dictionary<string,object> Sessions => SB.Sessions;
 
         public string UserName => SB.UserName;
 

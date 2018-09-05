@@ -19,7 +19,7 @@ namespace FIVIL.Litentity
         }
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            Litentity<SessionData> SB = (Litentity<SessionData>)context.HttpContext.RequestServices.GetRequiredService<ILitentity<SessionData>>();
+            Litentity SB = (Litentity)context.HttpContext.RequestServices.GetRequiredService<ILitentity>();
             if (context.Filters.Any(item => item is IAllowAnonymousFilter))
             {
                 return;

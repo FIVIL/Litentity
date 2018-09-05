@@ -8,11 +8,11 @@ using System.Text;
 
 namespace FIVIL.Litentity
 {
-    class LitentityAllowAnonymousAttribute : Attribute, IAuthorizationFilter, IAllowAnonymousFilter
+    public class LitentityAllowAnonymousAttribute : Attribute, IAuthorizationFilter, IAllowAnonymousFilter
     {
         public void OnAuthorization(AuthorizationFilterContext context)
         {
-            Litentity<SessionData> SB = (Litentity<SessionData>)context.HttpContext.RequestServices.GetRequiredService<ILitentity<SessionData>>();
+            Litentity SB = (Litentity)context.HttpContext.RequestServices.GetRequiredService<ILitentity>();
             SB.status = true;
         }
     }

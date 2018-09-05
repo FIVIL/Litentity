@@ -15,6 +15,10 @@ namespace FIVIL.Litentity
             {
                 bool flag = false;
                 Guid g = Guid.Empty;
+                var sessions = c.RequestServices.GetRequiredService<SessionProvider>();
+                sessions.Initiate();
+                var SB = (Litentity)c.RequestServices.GetRequiredService<ILitentity>();
+                SB.SessionS = sessions;
                 if (LitentityConfiguration.Cookie)
                 {
                     if (c.Request.Cookies.ContainsKey(LitentityConfiguration.PrivateTokenName))
@@ -22,13 +26,10 @@ namespace FIVIL.Litentity
                         var p = c.Request.Cookies[LitentityConfiguration.PrivateTokenName].ToString();
                         if (Guid.TryParse(p, out g))
                         {
-                            var sessions = c.RequestServices.GetRequiredService<SessionProvider>();
-                            Litentity<SessionData> SB = (Litentity<SessionData>)c.RequestServices.GetRequiredService<ILitentity<SessionData>>();
                             var sb = sessions.Get(g);
                             if (sb.Item1)
                             {
                                 SB.Key = g;
-                                SB.SessionS = sessions;
                                 SB.SB = sb.Item2;
                                 flag = true;
                                 SB.status = flag;
@@ -51,13 +52,10 @@ namespace FIVIL.Litentity
                             var p = c.Request.Headers[LitentityConfiguration.PrivateTokenName].ToString();
                             if (Guid.TryParse(p, out g))
                             {
-                                var sessions = c.RequestServices.GetRequiredService<SessionProvider>();
-                                Litentity<SessionData> SB = (Litentity<SessionData>)c.RequestServices.GetRequiredService<ILitentity<SessionData>>();
                                 var sb = sessions.Get(g);
                                 if (sb.Item1)
                                 {
                                     SB.Key = g;
-                                    SB.SessionS = sessions;
                                     SB.SB = sb.Item2;
                                     flag = true;
                                     SB.status = flag;

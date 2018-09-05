@@ -10,21 +10,18 @@ namespace FIVIL.Litentity
 {
     public class SessionProvider : IDisposable
     {
-        private readonly Dictionary<Guid, SessionBase> _sessions;
-        private readonly object _lock;
-        internal TimeSpan IdleTime;
-        internal Action<SessionBase> CallBackFunction;
-        private DateTime lastCheck;
-        private readonly Timer _timer;
-        public SessionProvider()
+        private readonly Dictionary<Guid, SessionBase> _sessions = new Dictionary<Guid, SessionBase>();
+        private readonly object _lock = new object();
+        internal TimeSpan IdleTime = TimeSpan.FromMinutes(45);
+        internal Action<SessionBase> CallBackFunction = (U) => { };
+        private DateTime lastCheck = DateTime.MinValue;
+        private bool Initaited = false;
+        private Timer _timer ;
+        internal void Initiate()
         {
-            _sessions = new Dictionary<Guid, SessionBase>();
-            _lock = new object();
-            IdleTime = TimeSpan.FromMinutes(40);
-            CallBackFunction = (U) => { };
-            lastCheck = DateTime.MinValue;
+            if (Initaited) return;
             _timer = new Timer(DoWork, new object(), IdleTime, IdleTime);
-
+            Initaited = true;
         }
         private void DoWork(object obj)
         {

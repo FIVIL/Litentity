@@ -11,6 +11,7 @@ namespace FIVIL.Litentity
         {
             User = user;
             LastSeen = DateTime.Now;
+            Sessions = new Dictionary<string, object>();
         }
 
         internal readonly LitentityUsers User;
@@ -21,7 +22,7 @@ namespace FIVIL.Litentity
         public bool EmailConfirmed => User.EmailConfirmed;
         public bool PhoneConfirmed => User.PhoneConfirmed;
 
-        public SessionData SessionData;
+        public Dictionary<string, object> Sessions;
 
         internal DateTime LastSeen;
     }

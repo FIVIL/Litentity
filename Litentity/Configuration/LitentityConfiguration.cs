@@ -13,6 +13,8 @@ namespace FIVIL.Litentity
         internal static Action<LitentityUsers> callBack;
         internal static TimeSpan IdleTime = TimeSpan.FromMinutes(40);
         internal static Guid PublicToken = Guid.NewGuid();
+        internal static Type type;
+
         public LitentityConfiguration()
         {
 
